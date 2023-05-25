@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 import ErrorPage from "./pages/ErrorPage";
 const AppLayout = () => {
   return (
-    <div className="flex flex-col" >
+    <div className="flex flex-col h-screen border border-red-500" >
     <Header/>
     <Outlet/>
     <Footer/>

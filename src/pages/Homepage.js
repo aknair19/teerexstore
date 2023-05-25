@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom"
 
 const Homepage=()=>{
     return(
-        <div>Hello from homepage</div>
+        <div className="flex-1" > Hello from homepage</div>
         
     )
 }
