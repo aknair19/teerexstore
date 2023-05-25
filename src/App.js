@@ -7,10 +7,10 @@ import Footer from "./components/Footer";
 import ErrorPage from "./pages/ErrorPage";
 const AppLayout = () => {
   return (
-    <div className="flex flex-col h-screen box-border" >
-    <Header/>
-    <Outlet/>
-    <Footer/>
+    <div className="flex flex-col justify-center items-center w-full h-screen min-h-screen  box-border">
+      <Header />
+      <Outlet />
+      <Footer />
     </div>
   );
 };
@@ -19,7 +19,7 @@ export const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
-    errorElement:<ErrorPage/>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -28,7 +28,7 @@ export const appRouter = createBrowserRouter([
       {
         path: "cart",
         element: <CartPage />,
-      }
+      },
     ],
   },
 ]);
