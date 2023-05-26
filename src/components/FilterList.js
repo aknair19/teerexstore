@@ -1,6 +1,6 @@
 import React from "react";
 
-const FilterComponent = () => {
+const FilterList = () => {
   return (
     <div className=" w-1/4 max-w-[250px]    ml-4">
       <div className="flex flex-col px-6 py-4 gap-2 `  shadow-lg">
@@ -69,4 +69,4 @@ const FilterComponent = () => {
   );
 };
 
-export default FilterComponent;
+export default FilterList;

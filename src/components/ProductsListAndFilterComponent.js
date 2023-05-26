@@ -1,10 +1,10 @@
 import React from "react";
-import FilterComponent from "./FilterComponent";
+import FilterList from "./FilterList";
 import ProductsList from "./ProductsList";
 const ProductsListAndFilterComponent = () => {
   return (
     <div className="flex gap-3   justify-between w-full   ">
-      <FilterComponent />
+      <FilterList />
       <ProductsList />
     </div>
   );

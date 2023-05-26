@@ -1,17 +1,22 @@
-import React from 'react'
+import React from "react";
 
-const ProductTile = () => {
+const ProductTile = ({ imageURL, price, name }) => {
   return (
-    <div className="  container  flex flex-col rounded-md border  w-48 h-60 hover:shadow-md shadow-inner  ">
-          <img className="w-full h-30 p-2" alt="#" src='https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems/shopping-cart/black-polo-men.png' />
+  
+      <div className="  container  flex flex-col rounded-md border  w-48 h-60 hover:shadow-md shadow-inner  relative  ">
+        <img className="w-full h-5/6 p-2" alt={name} src={imageURL} />
 
-<div className='p-2 font-semibold text-sm flex justify-between items-center'>
-    <p>Rs.320</p>
-    <button className='p-1 px-2 bg-blue-400 text-white border-none  rounded-sm ' >Add to Cart</button>
-</div>
+        <div className="p-2 font-semibold text-sm flex justify-between items-center h-1/6">
+          <p className="font-semibold text-sm">₹{price}</p>
+          <button className="p-1 px-2 bg-blue-400 text-white border-none  rounded-sm ">
+            Add to Cart
+          </button>
+        </div>
+        <div className="absolute top-2 left-0 inline-block p-1 px-3 bg-yellow-400 font-semibold text-sm"> {name}</div>
+      </div>
+      
+  
+  );
+};
 
-    </div>
-  )
-}
-
-export default ProductTile
+export default ProductTile;
