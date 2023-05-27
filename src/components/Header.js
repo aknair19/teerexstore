@@ -1,7 +1,8 @@
-import React from "react";
+import React,{useState} from "react";
 import { Link } from "react-router-dom";
 import { FiShoppingCart } from "react-icons/fi";
 const Header = () => {
+  
   return (
     <nav className="border h-24 flex justify-center bg-blue-400 shadow-lg w-full ">
       <div className=" w-5/6 flex justify-between items-center text-white ">

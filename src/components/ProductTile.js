@@ -12,7 +12,7 @@ const ProductTile = ({ imageURL, price, name }) => {
             Add to Cart
           </button>
         </div>
-        <div className="absolute top-2 left-0 inline-block p-1 px-3 bg-yellow-400 font-semibold text-sm"> {name}</div>
+        <div className="absolute top-1 left-0 inline-block p-1 px-3 bg-yellow-400 font-semibold text-sm rounded-sm"> {name}</div>
       </div>
       
   

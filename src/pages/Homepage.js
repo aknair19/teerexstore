@@ -1,24 +1,18 @@
-import { useContext,createContext } from "react";
-import { REACT_APP_FETCH_PRODUCTS } from "../constants";
+import { useState, useEffect, useContext } from "react";
+import { REACT_APP_FETCH_PRODUCTS } from "../utils/constants";
 import SearchComponent from "../components/SearchComponent";
 import ProductsListAndFilterComponent from "../components/ProductsListAndFilterComponent";
-import useFetch from "../hooks/useFetch";
+import useFetch from "../utils/hooks/useFetch";import SearchContext from "../context/search/SearchContext";
 
-export const ProductsListData=createContext()
 const Homepage = () => {
-  const { apiData, isLoading, serverError } = useFetch(
-    REACT_APP_FETCH_PRODUCTS
-  );
-
-  return apiData === null ? (
+  const data = useContext(SearchContext);
+  return data.searchData === null ? (
     <div className="flex-1 ">LOADING</div>
   ) : (
     <main className="flex-1   w-full  overflow-y-auto flex justify-center items-start ">
       <div className=" flex   flex-col w-full  justify-center items-center space-y-3 ">
-        <ProductsListData.Provider value={apiData}>
         <SearchComponent />
         <ProductsListAndFilterComponent />
-        </ProductsListData.Provider>
       </div>
     </main>
   );

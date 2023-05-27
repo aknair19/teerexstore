@@ -1,12 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const Footer = () => {
   return (
-    <div className='border h-16 p-3 w-full bg-blue-400 text-center font-bold text-lg text-white'>
-
-      Teerex &#169; 2023
+    <div className="border h-16 p-3 w-full bg-blue-400 text-center font-bold text-lg text-white">
+      Teerex &#169; 2023 Created By
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

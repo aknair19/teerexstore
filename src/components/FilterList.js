@@ -1,68 +1,115 @@
 import React from "react";
+import { useContext } from "react";
+import FilterContext from "../context/filter/FilterContext";
+import SearchContext from "../context/search/SearchContext";
+import {
+  filterProductByColorList,
+  filterProductByGenderList,
+  filterProductByPriceList,
+  filterProductByTypeList,
+} from "../utils/constants";
 
 const FilterList = () => {
+  const filterContext = useContext(FilterContext);
+  const searchContext = useContext(SearchContext);
+
+  const handleFilterByColor = (
+    event,
+    filterContext,
+    productArr,
+    setProductArr,
+    filterArr
+  ) => {
+    filterContext.handleCheckBoxChange(
+      event,
+      filterContext.filterInputByColor,
+      filterContext.setFilterInputByColor
+    );
+
+    // if (filterArr.length === 0) return;
+    // const filteredArrByColor = productArr.filter((product) =>
+    //   filterArr.includes(product.color)
+    // );
+    // setProductArr(filteredArrByColor);
+  };
+
   return (
     <div className=" w-1/4 max-w-[250px]    ml-4">
       <div className="flex flex-col px-6 py-4 gap-2 `  shadow-lg">
         <p className="font-semibold text-blue-400">Color</p>
         <ul>
-          <li className="px-1">
-            {" "}
-            <input
-              type="checkbox"
-              className=" text-lg accent-blue-400 mr-1"
-            />{" "}
-            Red
-          </li>
-          <li className="px-1">
-            <input type="checkbox" className=" text-lg accent-blue-400 mr-1" />{" "}
-            Blue
-          </li>
-          <li className="px-1">
-            <input type="checkbox" className=" text-lg accent-blue-400 mr-1" />
-            Green
-          </li>
+          {filterProductByColorList.map((list) => (
+            <li key={list.id} className="px-1">
+              {" "}
+              <input
+                type="checkbox"
+                value={list.value}
+                className=" text-lg accent-blue-400 mr-1"
+                onChange={(event) => handleFilterByColor(event, filterContext)}
+              />{" "}
+              {list.name}
+            </li>
+          ))}
         </ul>
         <p className="font-semibold text-blue-400 ">Gender</p>
         <ul>
-          <li className="px-1">
-            <input type="checkbox" className=" text-lg accent-blue-400 mr-1" />
-            Men
-          </li>
-          <li className="px-1">
-            <input type="checkbox" className=" text-lg accent-blue-400 mr-1" />
-            Women
-          </li>
+          {filterProductByGenderList.map((list) => (
+            <li key={list.id} className="px-1">
+              <input
+                type="checkbox"
+                value={list.value}
+                className=" text-lg accent-blue-400 mr-1"
+                onChange={(event) =>
+                  filterContext.handleCheckBoxChange(
+                    event,
+                    filterContext.filterInputByGender,
+                    filterContext.setFilterInputByGender
+                  )
+                }
+              />
+              {list.name}
+            </li>
+          ))}
         </ul>
         <p className="font-semibold text-blue-400 ">Price</p>
         <ul>
-          <li className="px-1">
-            <input type="checkbox" className=" text-lg accent-blue-400 mr-1" />
-            0-₹250
-          </li>
-          <li className="px-1">
-            <input type="checkbox" className=" text-lg accent-blue-400 mr-1" />
-            ₹250-₹400
-          </li>
-          <li className="px-1">
-            <input type="checkbox" className=" text-lg accent-blue-400 mr-1" />
-            ₹450 and Above
-          </li>
+          {filterProductByPriceList.map((list) => (
+            <li className="px-1" key={list.id}>
+              <input
+                type="checkbox"
+                value={list.value}
+                className=" text-lg accent-blue-400 mr-1"
+                onChange={(event) =>
+                  filterContext.handleCheckBoxChange(
+                    event,
+                    filterContext.filterInputByPrice,
+                    filterContext.setFilterInputByPrice
+                  )
+                }
+              />
+              {list.name}
+            </li>
+          ))}
         </ul>
         <p className="font-semibold text-blue-400 ">Type</p>
         <ul>
-          <li className="px-1">
-            <input type="checkbox" className=" text-lg accent-blue-400 mr-1" />
-            Polo
-          </li>
-          <li className="px-1">
-            <input type="checkbox" className=" text-lg accent-blue-400 mr-1" />
-            Hoodie
-          </li>
-          <li className="px-1">
-            <input type="checkbox" className=" text-lg accent-blue-400 mr-1" />
-            Basic
-          </li>
+          {filterProductByTypeList.map((list) => (
+            <li key={list.id} className="px-1">
+              <input
+                type="checkbox"
+                className=" text-lg accent-blue-400 mr-1"
+                value={list.value}
+                onChange={(event) =>
+                  filterContext.handleCheckBoxChange(
+                    event,
+                    filterContext.filterInputByType,
+                    filterContext.setFilterInputByType
+                  )
+                }
+              />
+              {list.name}
+            </li>
+          ))}
         </ul>
       </div>
     </div>
