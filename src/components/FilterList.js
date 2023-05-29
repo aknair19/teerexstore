@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useContext } from "react";
 import FilterContext from "../context/filter/FilterContext";
 import SearchContext from "../context/search/SearchContext";
@@ -13,25 +13,26 @@ const FilterList = () => {
   const filterContext = useContext(FilterContext);
   const searchContext = useContext(SearchContext);
 
-  const handleFilterByColor = (
-    event,
-    filterContext,
-    productArr,
-    setProductArr,
-    filterArr
-  ) => {
+  const handleFilterByColor = (event, filterContext, searchContext) => {
     filterContext.handleCheckBoxChange(
       event,
       filterContext.filterInputByColor,
       filterContext.setFilterInputByColor
     );
 
-    // if (filterArr.length === 0) return;
-    // const filteredArrByColor = productArr.filter((product) =>
-    //   filterArr.includes(product.color)
-    // );
-    // setProductArr(filteredArrByColor);
+    if (filterContext.filterInputByColor.length === 0) return;
+    const filteredArrByColor = searchContext.searchData.filter((product) =>
+      filterContext.filterInputByColor.includes(product.color.toLowerCase())
+    );
+    searchContext.setSearchData(filteredArrByColor);
   };
+
+  // useEffect(()=>{
+  //   const filteredArrByColor = searchContext.searchData.filter((product) =>product.color==='Red'
+
+  //   );
+  //   console.log(filteredArrByColor)
+  // },[ filterContext.filterInputByColor])
 
   return (
     <div className=" w-1/4 max-w-[250px]    ml-4">
@@ -45,7 +46,9 @@ const FilterList = () => {
                 type="checkbox"
                 value={list.value}
                 className=" text-lg accent-blue-400 mr-1"
-                onChange={(event) => handleFilterByColor(event, filterContext)}
+                onChange={(event) =>
+                  handleFilterByColor(event, filterContext, searchContext)
+                }
               />{" "}
               {list.name}
             </li>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 const CartEmpty=()=>{
     return(
-        <div className=" flex flex-col justify-start items-center">
+        <div className=" flex flex-1 overflow-y-auto flex-col justify-start items-center">
         <div>
           <img
             src="https://cdn.dribbble.com/users/2046015/screenshots/4591856/media/314560586aef7f1eae694d78a015c69c.gif"

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FilterContext from "./FilterContext";
 const FilterState = ({ children }) => {
   const [filterInputByColor, setFilterInputByColor] = useState([]);
@@ -14,6 +14,7 @@ const FilterState = ({ children }) => {
       setState(state.filter((s) => s !== value));
     }
   };
+
 
 
 
