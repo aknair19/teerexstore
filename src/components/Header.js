@@ -1,8 +1,16 @@
-import React,{useState} from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { FiShoppingCart } from "react-icons/fi";
+import SearchContext from "../context/search/SearchContext";
 const Header = () => {
-  
+  const { itemsInCart } = useContext(SearchContext);
+
+  const getTotalCartQty = (productsInCart) => {
+    const cartItemArr = productsInCart.map((cartItem) => cartItem.addToCart);
+    return cartItemArr.reduce((partialSum, a) => partialSum + a, 0);
+
+  };
+
   return (
     <nav className="border h-24 flex justify-center bg-blue-400 shadow-lg w-full ">
       <div className=" w-5/6 flex justify-between items-center text-white ">
@@ -19,7 +27,9 @@ const Header = () => {
                 <FiShoppingCart />
               </p>
 
-              <p className="absolute text-sm font-bold top-4   inline-block">0</p>
+              <p className="absolute text-sm font-bold top-5   inline-block text-red-400">
+                {itemsInCart.length>0?getTotalCartQty(itemsInCart):<span></span>}
+              </p>
             </div>
           </Link>
         </div>

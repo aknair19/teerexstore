@@ -10,8 +10,13 @@ const useFetch = (URL) => {
       const fetchData = async () => {
         const response = await axios.get(URL);
         const result = response.data;
-        setApiData(result);
+        const modifiedData = result.map((data) => ({
+          ...data,
+          
+        }));
+        setApiData(modifiedData);
       };
+
       fetchData();
     } catch (error) {
       setServerError(error);
@@ -20,7 +25,7 @@ const useFetch = (URL) => {
     }
   }, [URL]);
 
-  return {apiData,isLoading,serverError}
+  return { apiData, isLoading, serverError };
 };
 
 export default useFetch;
