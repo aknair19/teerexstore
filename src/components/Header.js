@@ -8,18 +8,19 @@ const Header = () => {
   const getTotalCartQty = (productsInCart) => {
     const cartItemArr = productsInCart.map((cartItem) => cartItem.addToCart);
     return cartItemArr.reduce((partialSum, a) => partialSum + a, 0);
-
   };
 
   return (
-    <header className="border h-24 flex justify-center bg-blue-400 shadow-lg w-full ">
+    <header className="border h-24 flex justify-center items-center bg-blue-400 shadow-lg w-full   border-red-600 ">
       <div className=" w-5/6 flex justify-between items-center text-white ">
         <Link to="/">
           <h4 className="font-bold text-2xl "> Teerex Store</h4>
         </Link>
-        <div className="flex  gap-6">
+        <div className="flex justify-center items-center  gap-6">
           <Link to="/">
-            <p className="font-semibold text-lg hover:text-gray-400">Products</p>
+            <p className="font-semibold text-lg hover:text-gray-400">
+              Products
+            </p>
           </Link>
           <Link to="cart">
             <div className="  static">
@@ -28,7 +29,11 @@ const Header = () => {
               </p>
 
               <p className="absolute text-sm font-bold top-5   inline-block text-red-400">
-                {itemsInCart.length>0?getTotalCartQty(itemsInCart):<span></span>}
+                {itemsInCart.length > 0 ? (
+                  getTotalCartQty(itemsInCart)
+                ) : (
+                  <span></span>
+                )}
               </p>
             </div>
           </Link>

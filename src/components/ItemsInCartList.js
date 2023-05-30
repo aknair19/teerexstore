@@ -9,7 +9,7 @@ const ItemsInCartList = ({ itemsInCart }) => {
   
   return (
     itemsInCart.length > 0 && (
-      <div className="flex-1 p-3   w-3/4 max-w-3xl flex flex-col justify-start items-center overflow-y-auto border ">
+      <div className="flex-1 p-3   w-full max-w-3xl flex flex-col justify-start items-center overflow-y-auto border ">
         <div className="shadow-lg   w-full h-auto py-5 mt-8 flex px-4 items-baseline justify-between   ">
           <h1 className="text-center font-bold text-xl text-blue-400   underline">
             Items in Cart
