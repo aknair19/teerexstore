@@ -2,7 +2,8 @@ import { useState, useEffect, useContext } from "react";
 import { REACT_APP_FETCH_PRODUCTS } from "../utils/constants";
 import SearchComponent from "../components/SearchComponent";
 import ProductsListAndFilterComponent from "../components/ProductsListAndFilterComponent";
-import useFetch from "../utils/hooks/useFetch";import SearchContext from "../context/search/SearchContext";
+import useFetch from "../utils/hooks/useFetch";
+import SearchContext from "../context/search/SearchContext";
 import Loader from "../components/Loader";
 const Homepage = () => {
   const data = useContext(SearchContext);

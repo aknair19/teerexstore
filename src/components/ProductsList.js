@@ -2,10 +2,9 @@ import React from "react";
 import ProductTile from "./ProductTile";
 import { useContext } from "react";
 import SearchContext from "../context/search/SearchContext";
-import FilterContext from "../context/filter/FilterContext";
+
 const ProductsList = () => {
-  const {searchData} = useContext(SearchContext);
-//  const filter=useContext(FilterContext);
+  const { searchData } = useContext(SearchContext);
 
   return (
     <div className="flex flex-wrap border rounded-lg justify-start items-center  w-5/6 h-full gap-4 p-4 ">

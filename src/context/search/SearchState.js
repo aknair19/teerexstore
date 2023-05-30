@@ -7,14 +7,20 @@ const SearchState = ({ children }) => {
   const { apiData, isLoading, serverError } = useFetch(
     REACT_APP_FETCH_PRODUCTS
   );
+
   const navigate = useNavigate();
   const [searchData, setSearchData] = useState(null);
   const [searchInput, setSearchInput] = useState("");
   const [itemsInCart, setItemsInCart] = useState([]);
   const [selectedOption, setSelectedOption] = useState("");
+
   useEffect(() => {
     setSearchData(apiData);
   }, [apiData]);
+
+
+
+
 
   const handleSearch = () => {
     const searchResults = apiData.filter((data) =>
@@ -87,6 +93,7 @@ const SearchState = ({ children }) => {
         handleClearCart,
         handleTotalAmount,
         handleOrder,
+      
       }}
     >
       {children}
