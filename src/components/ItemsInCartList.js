@@ -21,6 +21,7 @@ const ItemsInCartList = ({ itemsInCart }) => {
             <BsFillTrashFill />
           </button>
         </div>
+        
         <div className=" flex flex-col w-full items-center ">
           {itemsInCart.map((item) => (
             <ItemsInCart item={item} key={item.id} />
@@ -36,6 +37,7 @@ const ItemsInCartList = ({ itemsInCart }) => {
             <button className=" text-white bg-blue-400 hover:bg-violet-600 rounded-lg font-bold text-md p-1" onClick={()=>handleOrder()}>
               PLACE ORDER
             </button>
+        
         
         </div>
       </div>

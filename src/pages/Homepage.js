@@ -11,7 +11,7 @@ const Homepage = () => {
    <Loader/>
   ) : (
     <main className="flex-1   w-full  overflow-y-auto flex justify-center items-start ">
-      <div className=" flex   flex-col w-full  justify-center items-center space-y-3 ">
+      <div className=" flex   flex-col w-full  justify-center items-center space-y-3 px-2 ">
         <SearchComponent />
         <ProductsListAndFilterComponent />
       </div>

@@ -13,15 +13,21 @@ import {
 const FilterList = () => {
   const { apiData } = useFetch(REACT_APP_FETCH_PRODUCTS);
   const { searchData, setSearchData } = useContext(SearchContext);
-  const [selectedFilters, setSelectedFilters] = useState({
+  const initialState = {
     gender: [],
     color: [],
     price: [],
     type: [],
-  });
+  };
+  const [selectedFilters, setSelectedFilters] = useState(initialState);
   useEffect(() => {
     updatedResults();
+    
   }, [selectedFilters]);
+  const handleClearAllFilters = () => {
+    setSelectedFilters(initialState);
+  };
+
   const handleFilterSelection = (filterCategory, filterValue) => {
     setSelectedFilters((prevSelectedFilters) => {
       const isFilterSelected =
@@ -56,10 +62,16 @@ const FilterList = () => {
     });
     setSearchData(filteredResults);
   };
+
   return (
     <div className="  hidden md:flex   md:h-[550px]  md:w-1/5 max-w-[250px]    ml-4">
       <div className="flex flex-col px-6 py-4 gap-2 `  shadow-lg">
-     
+        <button
+          className="font-semibold   text-start    rounded-lg cursor-pointer font-semibold text-sm text-red-400 hover:text-gray-400 hidden"
+          onClick={() => handleClearAllFilters()}
+        >
+          Clear All Filters
+        </button>
         <p className="font-semibold text-blue-400">Color</p>
         <ul>
           {filterProductByColorList.map((option) => (
@@ -121,7 +133,6 @@ const FilterList = () => {
             </li>
           ))}
         </ul>
-        <p className="font-semibold bg-blue-400 text-white px-2 text-center py-1 rounded-lg cursor-pointer">Clear All Filter</p>
       </div>
     </div>
   );
