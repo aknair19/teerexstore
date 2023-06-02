@@ -11,21 +11,6 @@ import {
 } from "../utils/constants";
 
 const FilterList = () => {
-  // const [filterByColor, setFilterByColor] = useState([]);
-  // const [filterByGender, setFilterByGender] = useState([]);
-  // const [filterByPrice, setFilterByPrice] = useState([]);
-  // const [filterByType, setFilterByType] = useState([]);
-
-  // const handleFilterValue = (event, state, setState) => {
-  //   const checkFilter = state.find((s) => s.value === event.target.value);
-
-  //   if (!checkFilter) {
-  //     setState((prevState) => [...prevState, event.target.value]);
-  //   }else{
-  //     const checkFilter=state.filter(s=>s.value===event.target.value)
-  //     setState(checkFilter)
-  //   }
-  // };
   const { apiData } = useFetch(REACT_APP_FETCH_PRODUCTS);
   const { searchData, setSearchData } = useContext(SearchContext);
   const [selectedFilters, setSelectedFilters] = useState({
@@ -72,8 +57,9 @@ const FilterList = () => {
     setSearchData(filteredResults);
   };
   return (
-    <div className=" w-1/4 max-w-[250px]    ml-4">
+    <div className="  hidden md:flex   md:h-[550px]  md:w-1/5 max-w-[250px]    ml-4">
       <div className="flex flex-col px-6 py-4 gap-2 `  shadow-lg">
+     
         <p className="font-semibold text-blue-400">Color</p>
         <ul>
           {filterProductByColorList.map((option) => (
@@ -135,6 +121,7 @@ const FilterList = () => {
             </li>
           ))}
         </ul>
+        <p className="font-semibold bg-blue-400 text-white px-2 text-center py-1 rounded-lg cursor-pointer">Clear All Filter</p>
       </div>
     </div>
   );

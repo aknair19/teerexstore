@@ -11,7 +11,7 @@ const Header = () => {
   };
 
   return (
-    <header className="border h-24 flex justify-center items-center bg-blue-400 shadow-lg w-full   border-red-600 ">
+    <header className=" h-24 flex justify-center items-center bg-blue-400 shadow-lg w-full   ">
       <div className=" w-5/6 flex justify-between items-center text-white ">
         <Link to="/">
           <h4 className="font-bold text-2xl "> Teerex Store</h4>
