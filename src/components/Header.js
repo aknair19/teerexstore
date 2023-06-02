@@ -16,7 +16,7 @@ const Header = () => {
     <header className=" h-24 flex justify-center items-center bg-blue-400 shadow-lg w-full   ">
       <div className=" w-5/6 flex justify-between items-center text-white ">
         <div className="flex  space-x-4 items-center">
-        <button className=" text-3xl md:hidden focus:outline-none" ><GiHamburgerMenu/></button>
+      
         <Link to="/">
           <h4 className="font-bold text-2xl "> Teerex Store</h4>
         </Link>

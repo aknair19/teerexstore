@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import SearchContext from "../context/search/SearchContext";
 const ProductTile = (product) => {
-  const { imageURL, price, name, id } = product;
+  const { imageURL, price, name, id, color } = product;
   const { handleAddToCart } = useContext(SearchContext);
   return (
     <div className="  container  flex flex-col rounded-md border  w-48 h-60 hover:shadow-md shadow-inner  relative  ">
@@ -9,6 +9,9 @@ const ProductTile = (product) => {
 
       <div className="p-2 font-semibold text-sm flex justify-between items-center h-1/6">
         <p className="font-semibold text-sm">₹{price}</p>
+        <div
+          className={`w-[15px] h-[15px] border bg-${color.toLowerCase()}-400`}
+        ></div>
         <button
           className="p-1 px-2 bg-blue-400 text-white border-none  rounded-sm hover:bg-violet-600"
           onClick={() => handleAddToCart(product)}
