@@ -2,6 +2,8 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { FiShoppingCart } from "react-icons/fi";
 import SearchContext from "../context/search/SearchContext";
+
+import { GiHamburgerMenu } from 'react-icons/gi';
 const Header = () => {
   const { itemsInCart } = useContext(SearchContext);
 
@@ -13,9 +15,13 @@ const Header = () => {
   return (
     <header className=" h-24 flex justify-center items-center bg-blue-400 shadow-lg w-full   ">
       <div className=" w-5/6 flex justify-between items-center text-white ">
+        <div className="flex  space-x-4 items-center">
+        <button className=" text-3xl md:hidden focus:outline-none" ><GiHamburgerMenu/></button>
         <Link to="/">
           <h4 className="font-bold text-2xl "> Teerex Store</h4>
         </Link>
+      
+        </div>
         <div className="flex justify-center items-center  gap-6">
           <Link to="/">
             <p className="font-semibold text-lg hover:text-gray-400">

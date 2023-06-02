@@ -4,7 +4,7 @@ import ProductsList from "./ProductsList";
 const ProductsListAndFilterComponent = () => {
   
   return (
-    <div className="flex gap-3   justify-between w-full   ">
+    <div className=" flex flex-col  md:flex md:flex-row   gap-3   justify-between w-full   ">
       <FilterList />
       <ProductsList />
     </div>
